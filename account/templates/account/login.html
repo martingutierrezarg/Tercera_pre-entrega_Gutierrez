@@ -1,0 +1,41 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-4">
+    <div class="card card-body">
+      <h5 class="text-center">Iniciar Sesion</h5>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Correo electronico</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            Nunca compartiremos su correo electrónico con nadie más.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+      <div class="my-2">
+        <small class="text-muted">
+          No tienes una cuenta? </small>
+        <a href="{% url 'register-user' %}">Registrate aqui.</a>
+      </div> 
+    </div>
+  </div>
+</div>
+{% endblock content %}

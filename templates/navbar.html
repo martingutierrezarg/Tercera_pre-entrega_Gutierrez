@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'login-user' %}">BLOGS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {% if request.user.is_authenticated %}
+     
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <div class="nav-link active">
+            <h6 class="mb-0">Hola {{request.user.name}}</h6>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Mis Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'create-blog' %}">Crear nuevo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout-user' %}">Cerrar Sesion</a>
+        </li>
+
+        {% endif %}
+    </div>
+  </div>
+  
+</nav>

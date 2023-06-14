@@ -1,0 +1,27 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-4">
+    <div class="card card-body">
+      <h5 class="text-center">Registro</h5>
+      <form method="post" action="">
+        {% csrf_token %} {% for field in form %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >{{field.label}}</label
+          >
+          {{field}}
+        </div>
+        {% endfor %}
+        <input type="submit" class="btn btn-primary" />
+        <div class="my-2">
+          <small class="text-muted">
+            Ya tienes un usuario? </small>
+          <a href="{% url 'login-user' %}">Inicia Aqui.</a>
+        </div> 
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

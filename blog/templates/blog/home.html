@@ -1,0 +1,17 @@
+{% extends "main.html" %} {% block content %}
+
+<div class="d-flex justify-content-center align-items-center my-5 flex-column">
+  <h6>Lista de blogs</h6>
+  {% if myBlogList %}
+  {% for blog in myBlogList %}
+  <a href="{%  url 'blog-details' blog.id  %}">
+    <h5>{{blog.title}}</h5>
+  </a>
+  {% endfor %}
+  {% else %}
+  <p>No se encontraron blogs.</p>
+  {% endif %}
+
+</div>
+
+{% endblock content %}
